@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class CategoryController extends Controller
 {
@@ -33,7 +35,8 @@ return response()->json($category);
 }
     public function index(){
 
-        $items=Category::all();
+      
+                $items=Category::all();
         return   view( 'categories.create',compact('items'));
     }
     public function delete(Request $request)

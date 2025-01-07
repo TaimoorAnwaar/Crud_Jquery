@@ -1,13 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
+
+
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
  
-
-    </head>
-<body>
+       
+   
+  
     <div class="row">
         <div class="col-md-6 offset-md-3" style="margin-top: 100px">
             <!-- Trigger button -->
@@ -109,7 +108,8 @@
             
             <td>{{ $item->name }}</td>
             <td>{{ ucfirst($item->category) }}</td>
-            <td>
+                    
+             <td>
                 <div class="d-flex justify-content-center gap-2">
                     <button type="button" class="btn btn-primary update-btn btn-sm" data-id="{{ $item->id }}" data-name="{{ $item->name }}" data-category="{{ $item->category }}">
                         <i class="fas fa-pencil-alt"></i> Update
@@ -201,41 +201,7 @@ $(document).ready(function () {
 $('#exampleModalLabel').html("Create Category");
 $('#savebtn').html("Save");
 
-// $('#savebtn').click(function () {
-//     var form = $('#ajax')[0];
-//     var ajax = new FormData(form);
 
-//     $.ajax({
-//         url: '{{ route('store') }}',
-//         method: 'POST',
-//         processData: false,
-//         contentType: false,
-//         headers: {
-//             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-//         },
-//         data: ajax,
-//         success: function (response) {
-//             $('#ajax')[0].reset();
-//             $('#exampleModal').modal('hide');
-            
-//             location.reload();
-
-//             Swal.fire({
-//                 title: "Success!",
-//                 text: "Category added successfully!",
-//                 icon: "success"
-//             });
-//         },
-//         error: function (error) {
-//             if (error.responseJSON) {
-//                 $('#nameError').html(error.responseJSON.errors.name || '');
-//                 $('#categoryError').html(error.responseJSON.errors.type || '');
-//             }
-
-//             $('#successModal').modal('show');
-//         }
-//     });
-// });
 $('#savebtn').click(function () {
     var form = $('#ajax')[0];
     var ajax = new FormData(form);
@@ -252,6 +218,7 @@ $('#savebtn').click(function () {
         success: function (response) {
             $('#ajax')[0].reset();
             $('#exampleModal').modal('hide');
+            console.log("success");
 
             // Append the new row to the table dynamically
             var newRow = `
@@ -432,5 +399,3 @@ $('#savebtn').click(function () {
     });
     </script>
 
-</body>
-</html>
